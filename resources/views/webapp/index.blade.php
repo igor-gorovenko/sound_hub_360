@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Playback</h1>
+<h1>Sounds</h1>
 <table class="table table-bordered">
     @foreach ($sounds as $sound)
     <tr>

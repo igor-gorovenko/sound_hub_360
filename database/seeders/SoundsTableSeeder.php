@@ -13,32 +13,51 @@ class SoundsTableSeeder extends Seeder
      */
     public function run(): void
     {
+
         DB::table('sounds')->truncate();
 
         DB::table('sounds')->insert([
             [
                 'name' => 'forest',
+                'category' => 'Nature',
                 'path' => 'sounds/forest.mp3',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'name' => 'birds',
+                'category' => 'Nature',
                 'path' => 'sounds/birds.mp3',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'name' => 'fire',
+                'category' => 'Nature',
                 'path' => 'sounds/fire.mp3',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'name' => 'water',
+                'category' => 'Nature',
                 'path' => 'sounds/water.mp3',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'name' => 'wind',
+                'category' => 'Nature',
                 'path' => 'sounds/wind.mp3',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'name' => 'office',
+                'category' => 'Office',
                 'path' => 'sounds/office.mp3',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
         ]);
     }

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('sounds', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description')->nullable();
+            $table->text('category')->nullable();
             $table->string('path');
             $table->integer('volume')->default(100);
             $table->timestamps();
