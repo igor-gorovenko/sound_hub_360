@@ -1,10 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SoundController;
+use App\Http\Controllers\HomeController;
 
-Route::get('/', function () {
-    return view('webapp.index');
-});
-
-Route::get('/playback', [SoundController::class, 'playback']);
+Route::get('/', [HomeController::class, 'index'])->name('index');

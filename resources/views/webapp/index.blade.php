@@ -9,10 +9,18 @@
 
 <body>
     <h1>Playback</h1>
-
-    <audio controls>
-        <source src="{{ asset('storage/sounds/short_forest.mp3') }}" type="audio/mpeg">
-    </audio>
+    <table class="table table-bordered">
+        @foreach ($sounds as $sound)
+        <tr>
+            <td>{{ $sound->name }}</td>
+            <td>
+                <audio controls>
+                    <source src="{{ asset('storage/' . $sound->path) }}" type="audio/mpeg">
+                </audio>
+            </td>
+        </tr>
+        @endforeach
+    </table>
 </body>
 
 </html>
