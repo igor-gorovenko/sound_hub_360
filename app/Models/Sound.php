@@ -13,6 +13,8 @@ class Sound extends Model
 
     protected $fillable = [
         'name',
+        'category',
         'path',
+        'volume',
     ];
 }
