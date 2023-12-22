@@ -32,9 +32,9 @@ class SoundsTableSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'fire',
+                'name' => 'bonfire',
                 'category' => 'Nature',
-                'path' => 'sounds/fire.mp3',
+                'path' => 'sounds/bonfire.mp3',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

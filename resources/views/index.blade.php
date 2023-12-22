@@ -21,6 +21,7 @@
             <td>{{ $sound->name }}</td>
             <td>
                 <audio controls class="category-audio">
+
                     <source src="{{ asset('storage/' . $sound->path) }}" type="audio/mpeg">
                 </audio>
             </td>
@@ -53,7 +54,6 @@
                 // Приостановить воспроизведение всех звуков
                 audioElements.each(function() {
                     this.pause();
-                    this.currentTime = 0; // Сбросить время воспроизведения
                 });
             } else {
                 // Проиграть все звуки
