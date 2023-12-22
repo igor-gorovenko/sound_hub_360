@@ -9,16 +9,17 @@ class HomeController extends Controller
 {
     public function index()
     {
+        $categories = Sound::pluck('category')->unique();
         $sounds = Sound::all();
-        $categories = $sounds->unique('category')->pluck('category')->toArray();
 
-        return view('webapp.index', compact('sounds', 'categories'));
+        return view('index', compact('categories', 'sounds'));
     }
 
-    public function filterByCategory(Request $request, $category)
+    public function filterByCategory($category)
     {
-        $filteredSounds = Sound::where('category', $category)->get();
+        $categories = Sound::pluck('category')->unique();
+        $sounds = Sound::where('category', $category)->get();
 
-        return response()->json($filteredSounds);
+        return view('index', compact('sounds', 'categories'));
     }
 }
