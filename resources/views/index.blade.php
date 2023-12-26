@@ -22,47 +22,35 @@
         <tr>
             <td>{{ $sound->name }}</td>
             <td>
-                <audio class="sound" controls loop>
+                <audio class="sound" loop>
                     <source src="{{ asset('storage/' . $sound->path) }}" type="audio/mpeg">
                 </audio>
-
+                <div>
+                    <input type="range" class="volume-slider" min="0" max="1" step="0.2" value="1" oninput="setVolume(this)">
+                </div>
             </td>
         </tr>
         @endforeach
 
     </table>
 
-    <button onclick="toggleAllSounds()">Turn On Sounds</button>
+    <button class="btn btn-outline-primary" onclick="toggleAllSounds()">Turn <span id="soundStatus">On</span> Sounds</button>
 
 </div>
 
 <script>
     function toggleAllSounds() {
         var audioElements = document.getElementsByClassName('sound');
-        var isAnyPlaying = false;
+        var isAnyPlayingVar = Array.from(audioElements).some(audio => !audio.paused);
 
-        // Проверяем, есть ли хоть один звук включен
-        for (var i = 0; i < audioElements.length; i++) {
-            if (!audioElements[i].paused) {
-                isAnyPlaying = true;
-                break;
-            }
-        }
+        Array.from(audioElements).forEach(audio => audio[isAnyPlayingVar ? 'pause' : 'play']());
 
-        // Если хоть один звук включен, останавливаем все звуки
-        // Иначе включаем все звуки
-        for (var i = 0; i < audioElements.length; i++) {
-            if (isAnyPlaying) {
-                audioElements[i].pause();
-            } else {
-                audioElements[i].play();
-            }
-        }
+        document.getElementById('soundStatus').innerText = isAnyPlayingVar ? 'On' : 'Off';
+    }
 
-
-        // Обновляем текст на кнопке
-        var button = document.querySelector('button');
-        button.innerText = isAnyPlaying ? 'Turn On Sounds' : 'Turn Off Sounds';
+    function setVolume(slider) {
+        var audio = slider.parentElement.parentElement.querySelector('.sound');
+        audio.volume = slider.value;
     }
 </script>
 
