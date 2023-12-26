@@ -8,7 +8,7 @@
 <div>
     <h5>Select category</h5>
     @foreach ($categories as $category)
-    <a href="{{ route('index.filter', ['category' => $category])  }}">{{ $category }}</a>
+    <a href="{{ route('index.filter', ['slug' => $category->slug])  }}">{{ $category->name }}</a>
     @endforeach
 </div>
 

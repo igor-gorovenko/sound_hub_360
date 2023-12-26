@@ -5,21 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Sound extends Model
+class Category extends Model
 {
     use HasFactory;
 
-    protected $table = 'sounds';
-
     protected $fillable = [
         'name',
-        'category',
-        'path',
-        'volume',
+        'slug',
     ];
 
-    public function category()
+    public function sounds()
     {
-        return $this->belongsTo(Category::class);
+        return $this->hasMany(Sound::class);
     }
 }
