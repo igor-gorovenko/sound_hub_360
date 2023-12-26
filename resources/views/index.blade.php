@@ -39,12 +39,23 @@
 <script>
     function toggleAllSounds() {
         var audioElements = document.getElementsByClassName('sound');
+        var isAnyPlaying = false;
 
+        // Проверяем, есть ли хоть один звук включен
         for (var i = 0; i < audioElements.length; i++) {
-            if (audioElements[i].paused) {
-                audioElements[i].play();
-            } else {
+            if (!audioElements[i].paused) {
+                isAnyPlaying = true;
+                break;
+            }
+        }
+
+        // Если хоть один звук включен, останавливаем все звуки
+        // Иначе включаем все звуки
+        for (var i = 0; i < audioElements.length; i++) {
+            if (isAnyPlaying) {
                 audioElements[i].pause();
+            } else {
+                audioElements[i].play();
             }
         }
     }
