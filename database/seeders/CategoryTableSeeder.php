@@ -20,20 +20,8 @@ class CategoryTableSeeder extends Seeder
                 'slug' => 'forest',
             ],
             [
-                'name' => 'Noise rain',
-                'slug' => 'noise-rain',
-            ],
-            [
-                'name' => 'At dawn',
-                'slug' => 'at-dawn',
-            ],
-            [
                 'name' => 'Office',
                 'slug' => 'office',
-            ],
-            [
-                'name' => 'Coffee house',
-                'slug' => 'coffee-house',
             ],
         ]);
     }

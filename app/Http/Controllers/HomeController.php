@@ -15,4 +15,13 @@ class HomeController extends Controller
 
         return view('index', compact('categories', 'sounds'));
     }
+
+    public function showCategory($slug)
+    {
+        $categories = Category::all();
+        $category = Category::where('slug', $slug)->first();
+        $sounds = Sound::where('category_id', $category->id)->get();
+
+        return view('index', compact('categories', 'sounds'));
+    }
 }

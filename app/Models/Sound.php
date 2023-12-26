@@ -13,13 +13,13 @@ class Sound extends Model
 
     protected $fillable = [
         'name',
-        'category',
+        'category_id',
         'path',
         'volume',
     ];
 
     public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'category_id');
     }
 }
