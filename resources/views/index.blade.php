@@ -32,7 +32,7 @@
 
     </table>
 
-    <button onclick="toggleAllSounds()">Toggle All Sounds</button>
+    <button onclick="toggleAllSounds()">Turn On Sounds</button>
 
 </div>
 
@@ -58,6 +58,11 @@
                 audioElements[i].play();
             }
         }
+
+
+        // Обновляем текст на кнопке
+        var button = document.querySelector('button');
+        button.innerText = isAnyPlaying ? 'Turn On Sounds' : 'Turn Off Sounds';
     }
 </script>
 
