@@ -18,19 +18,36 @@
 <div>
     <h5>Sounds</h5>
     <table class="table table-bordered">
-        <tbody>
-            @foreach ($sounds as $sound)
-            <tr>
-                <td>{{ $sound->name }}</td>
-                <td>
-                    <audio controls>
-                        <source src="{{ asset('storage/' . $sound->path) }}" type="audio/mpeg">
-                    </audio>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
+        @foreach ($sounds as $sound)
+        <tr>
+            <td>{{ $sound->name }}</td>
+            <td>
+                <audio class="sound" controls loop>
+                    <source src="{{ asset('storage/' . $sound->path) }}" type="audio/mpeg">
+                </audio>
+
+            </td>
+        </tr>
+        @endforeach
+
     </table>
+
+    <button onclick="toggleAllSounds()">Toggle All Sounds</button>
+
 </div>
+
+<script>
+    function toggleAllSounds() {
+        var audioElements = document.getElementsByClassName('sound');
+
+        for (var i = 0; i < audioElements.length; i++) {
+            if (audioElements[i].paused) {
+                audioElements[i].play();
+            } else {
+                audioElements[i].pause();
+            }
+        }
+    }
+</script>
 
 @endsection
