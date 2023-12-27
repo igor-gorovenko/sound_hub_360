@@ -9,3 +9,6 @@ Route::get('/', [HomeController::class, 'index'])
 Route::get('/category/{slug}', [HomeController::class, 'showCategory'])
     ->name('category.show')
     ->where('slug', '[a-zA-Z0-9_-]+');
+
+
+Route::post('/timer-finished', [HomeController::class, 'timerFinished']);

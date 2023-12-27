@@ -16,6 +16,7 @@ class Sound extends Model
         'category_id',
         'path',
         'volume',
+        'is_playing',
     ];
 
     public function category()

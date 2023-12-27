@@ -10,8 +10,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
         $sounds = Sound::all();
+        $categories = Category::all();
 
         return view('index', compact('categories', 'sounds'));
     }
@@ -23,5 +23,12 @@ class HomeController extends Controller
         $sounds = Sound::where('category_id', $category->id)->get();
 
         return view('index', compact('categories', 'sounds'));
+    }
+
+    public function timerFinished(Request $request)
+    {
+        Sound::where('is_playing', true)->update(['is_playing' => false]);
+
+        return response()->json(['status' => 'success']);
     }
 }
