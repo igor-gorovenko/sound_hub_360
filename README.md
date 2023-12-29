@@ -31,6 +31,17 @@ composer install
 
 Копируем .env.example и меняем имя: .env
 
+Добавляем данные для связи с бд
+
+```
+DB_CONNECTION=
+DB_HOST=
+DB_PORT=
+DB_DATABASE=
+DB_USERNAME=
+DB_PASSWORD=
+```
+
 Генерируем APP_KEY в .env файле
 
 ```
