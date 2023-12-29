@@ -38,21 +38,11 @@
 </div>
 
 <div>
-    <h6>Controlls</h6>
-    <div>
-        <button class="btn btn-outline-primary" onclick="toggleAllSounds()">Turn <span id="soundStatus">On</span></button>
-    </div>
-
-    <div>
-        <h6>Timer</h6>
-        <input type="number" id="timerInput" placeholder="Enter seconds">
-        <button class="btn btn-outline-primary" onclick="startTimer()">Start Timer</button>
-    </div>
+    <button class="btn btn-outline-primary" onclick="toggleAllSounds()">Turn <span id="soundStatus">On</span></button>
 </div>
 
-<script>
-    let timer;
 
+<script>
     function setVolume(slider) {
         var audio = slider.parentElement.parentElement.querySelector('.sound');
         audio.volume = slider.value;
@@ -73,23 +63,6 @@
         });
 
         document.getElementById('soundStatus').innerText = isAnyPlayingVar ? 'On' : 'Off';
-    }
-
-    function startTimer() {
-        var timerInput = document.getElementById('timerInput');
-        var seconds = parseInt(timerInput.value, 10);
-
-        if (isNaN(seconds) || seconds <= 0) {
-            alert('Please enter a valid number of seconds.');
-            return;
-        }
-
-        clearTimeout(timer);
-
-        timer = setTimeout(() => {
-            toggleAllSounds();
-            alert('Timer finished!');
-        }, seconds * 1000);
     }
 </script>
 
